@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, ScrollView } from 'react-native';
 import Animated, {
   useDerivedValue,
   useSharedValue,
@@ -9,7 +9,6 @@ import {
   GestureHandlerRootView,
   Gesture,
   GestureDetector,
-  ScrollView,
 } from 'react-native-gesture-handler';
 import ReText from './components/ReText';
 
@@ -25,6 +24,11 @@ const STATES = {
   4: 'ACTIVE',
   5: 'END',
 };
+
+/**
+ * This works for all scrollable Components
+ */
+const CustomScrollComponent = createNativeWrapper(ScrollView)
 
 export default function App() {
   const panRef = useRef(null);
@@ -84,7 +88,7 @@ export default function App() {
         {/** ScrollView with pan gesture */}
         <GestureDetector gesture={panGesture}>
           <Animated.View style={{ flex: 1 }}>
-            <ScrollView
+            <CustomScrollComponent
               disallowInterruption={false}
               scrollEnabled={true}
               ref={scrollRef}
@@ -148,7 +152,7 @@ export default function App() {
                 rebum. Stet clita kasd gubergren, no sea takimata sanctus est
                 Lorem ipsum dolor sit amet.
               </Text>
-            </ScrollView>
+            </CustomScrollComponent>
           </Animated.View>
         </GestureDetector>
       </View>
