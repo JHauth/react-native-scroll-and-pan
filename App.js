@@ -19,7 +19,7 @@ import ReText from './components/ReText';
  */
 const STATES = {
   0: 'UNDETERMINED',
-  1: ' FAILED',
+  1: 'FAILED',
   2: 'BEGAN',
   3: 'CANCELLED',
   4: 'ACTIVE',
@@ -78,7 +78,7 @@ export default function App() {
         <View style={{ padding: 16, height: 180, justifyContent: 'flex-end' }}>
           <ReText text={touchPositionX} />
           <ReText text={touchPositionY} />
-          <Text>Gesture States (New -> Old):</Text>
+          <Text>{"Gesture States (New => Old):"}</Text>
           <ReText text={stateString} />
         </View>
         {/** ScrollView with pan gesture */}
